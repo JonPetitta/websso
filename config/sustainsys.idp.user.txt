@@ -1,0 +1,62 @@
+Manage URL: https://stubidp.sustainsys.com/d0e1ec5b-a9d3-405f-9a64-894232a89a89/Manage
+
+
+{
+  "HideDetails": false,
+  "UserList": [
+    {
+      "DisplayName": "Regular User",
+      "Description": "User wtih limited access",
+      "Assertion": {
+        "NameId": "user",
+        "AttributeStatements": [
+          {
+            "Type": "role",
+            "Value": "user"
+          }
+        ]
+      }
+    },
+    {
+      "DisplayName": "Supervisor",
+      "Description": "Supervisor with sup access",
+      "Assertion": {
+        "NameId": "sup",
+        "AttributeStatements": [
+          {
+            "Type": "role",
+            "Value": "supervisor"
+          },
+          {
+            "Type": "role",
+            "Value": "user"
+          }
+        ]
+      }
+    },
+    {
+      "DisplayName": "Administrator",
+      "Description": "Admin with full access",
+      "Assertion": {
+        "NameId": "admin",
+        "AttributeStatements": [
+          {
+            "Type": "role",
+            "Value": "administrator"
+          },
+          {
+            "Type": "role",
+            "Value": "supervisor"
+          },
+          {
+            "Type": "role",
+            "Value": "user"
+          }
+        ]
+      }
+    }
+  ],
+  "DefaultAssertionConsumerServiceUrl": "http://localhost:55815/saml2/Acs",
+  "DefaultAudience": "http://localhost:55815/saml2",
+  "IdpDescription": "WebSSO demo IDP"
+}

@@ -9,7 +9,7 @@ using Owin;
 
 namespace api.App_Start
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
@@ -26,6 +26,8 @@ namespace api.App_Start
             RouteConfig.Configure(configuration);
 
             app.UseWebApi(configuration);
+
+            ConfigureAuth(app);
         }
     }
 }
