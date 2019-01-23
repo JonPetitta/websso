@@ -1,15 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary" class="mat-elevation-z6">
-  <span>{{ title }}</span>
-
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
-  
-  <a mat-button routerLink="/" routerLinkActive="active">Home</a>
-  <a mat-button routerLink="/user" routerLinkActive="active">User</a>
-  <a mat-button routerLink="/sup" routerLinkActive="active">Supervisor</a>
-  <a mat-button routerLink="/admin" routerLinkActive="active">Administrator</a>
-</mat-toolbar>
+<app-auth-nav [title]="title" ></app-auth-nav>
 
 <div id="app-content" class="app-content">
   <router-outlet></router-outlet>

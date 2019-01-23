@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{ title }}</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <app-nav-link [link]="home.link" [name]="home.name" ></app-nav-link>
+  <app-nav-link [link]="user.link" [name]="user.name" [role]="user.role" ></app-nav-link>
+  <app-nav-link [link]="sup.link" [name]="sup.name" [role]="sup.role" ></app-nav-link>
+  <app-nav-link [link]="admin.link" [name]="admin.name" [role]="admin.role" ></app-nav-link>
+</mat-toolbar>
