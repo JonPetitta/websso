@@ -20,6 +20,8 @@ import { SupervisorComponent } from './supervisor/supervisor.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { HomeComponent } from './home/home.component';
 import { Saml2Component } from './saml2/saml2.component';
+import { AuthNavComponent } from './auth-nav/auth-nav.component';
+import { NavLinkComponent } from './nav-link/nav-link.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { Saml2Component } from './saml2/saml2.component';
     SupervisorComponent,
     AdministratorComponent,
     HomeComponent,
-    Saml2Component
+    Saml2Component,
+    AuthNavComponent,
+    NavLinkComponent
   ],
   imports: [
     BrowserModule,
