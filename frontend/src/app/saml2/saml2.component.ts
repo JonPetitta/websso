@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Identity } from '../models/identity';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-saml2',
@@ -9,14 +10,19 @@ import { Identity } from '../models/identity';
 })
 export class Saml2Component implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.authService.getIdentity().subscribe(
       (identity: Identity) => {
         localStorage.setItem('identity', JSON.stringify(identity));
+        this.router.navigate(['']);
       },
-      error => console.error(error) // error path
+      error => {
+        console.error(error);
+        this.router.navigate(['']);
+      }
     );
   }
 

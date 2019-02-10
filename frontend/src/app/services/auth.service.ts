@@ -15,7 +15,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getIdentity(): Observable<Identity> {
-    debugger;
     return this.http.get<Identity>(this.identityEndpoint, { withCredentials: true })
     .pipe(
       retry(3), // retry a failed request up to 3 times
