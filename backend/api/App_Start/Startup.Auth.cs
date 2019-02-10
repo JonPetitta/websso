@@ -38,17 +38,17 @@ namespace api.App_Start
                 SPOptions = spOptions,
                 // can tie into pipeline here
                 // uncomment to see saml working
-                //Notifications = new Saml2Notifications()
-                //{
-                //    AuthenticationRequestCreated = (request, rIdp, parms) =>
-                //    {
-                //        var test = parms;
-                //    },
-                //    AcsCommandResultCreated = (commandResult, response) =>
-                //    {
-                //        var test = commandResult.Principal.Claims;
-                //    }
-                //}
+                Notifications = new Saml2Notifications()
+                {
+                    AuthenticationRequestCreated = (request, rIdp, parms) =>
+                    {
+                        var test = parms;
+                    },
+                    AcsCommandResultCreated = (commandResult, response) =>
+                    {
+                        var test = commandResult.Principal.Claims;
+                    }
+                }
             };
             
             var ipEntityId = ConfigurationManager.AppSettings["saml:IPEntityId"];

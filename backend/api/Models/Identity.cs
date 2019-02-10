@@ -8,6 +8,7 @@ namespace api.Models
     public class Identity
     {
         public string LoginId { get; set; }
+        public string Name { get; set; }
         public List<string> Roles { get; set; }
     }
 }
