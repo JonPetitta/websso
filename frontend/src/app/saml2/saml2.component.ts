@@ -17,7 +17,16 @@ export class Saml2Component implements OnInit {
     this.authService.getIdentity().subscribe(
       (identity: Identity) => {
         localStorage.setItem('identity', JSON.stringify(identity));
-        this.router.navigate(['']);
+        this.authService.getToken().subscribe(
+          (token: string) => {
+            localStorage.setItem('token', token);
+            this.router.navigate(['']);
+          },
+          error => {
+            console.error(error);
+            this.router.navigate(['']);
+          }
+        )
       },
       error => {
         console.error(error);

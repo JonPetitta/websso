@@ -45,7 +45,7 @@ import { NavLinkComponent } from './nav-link/nav-link.component';
     MatDividerModule
   ],
   providers: [
-    AuthService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

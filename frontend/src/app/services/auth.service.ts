@@ -11,11 +11,20 @@ export class AuthService {
 
   private apiBase = 'http://localhost:55815/';
   private identityEndpoint = this.apiBase + 'api/auth/identity';
+  private tokenEndpoint = this.apiBase + 'api/auth/token';
 
   constructor(private http: HttpClient) { }
 
   getIdentity(): Observable<Identity> {
     return this.http.get<Identity>(this.identityEndpoint, { withCredentials: true })
+    .pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.handleError) // then handle the error
+    );
+  }
+
+  getToken(): Observable<string> {
+    return this.http.get<string>(this.tokenEndpoint, { withCredentials: true })
     .pipe(
       retry(3), // retry a failed request up to 3 times
       catchError(this.handleError) // then handle the error
