@@ -6,6 +6,7 @@ import { SupervisorComponent } from './supervisor/supervisor.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { Saml2Component } from './saml2/saml2.component';
 import { AuthGuard } from './guard/auth.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
       expectedRole: 'administrator'
     }
   },
-  { path: 'saml2', component: Saml2Component }
+  { path: 'saml2', component: Saml2Component },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({

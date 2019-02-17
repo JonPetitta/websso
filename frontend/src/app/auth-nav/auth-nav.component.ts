@@ -33,6 +33,12 @@ export class AuthNavComponent implements OnInit {
     role: 'administrator'
   };
 
+  logout = {
+    link: '/logout',
+    name: 'Logout',
+    role: 'user'
+  }
+
   constructor() { }
 
   ngOnInit() {

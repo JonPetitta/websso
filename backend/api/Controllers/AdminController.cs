@@ -8,6 +8,7 @@ using System.Web.Http;
 namespace api.Controllers
 {
     [Route("api/admin")]
+    [ApiAuth(Role = "administrator")]
     public class AdminController : ApiController
     {
         // GET: api/Admin

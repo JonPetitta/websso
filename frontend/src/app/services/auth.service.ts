@@ -11,7 +11,7 @@ export class AuthService {
 
   private apiBase = 'http://localhost:55815/';
   private identityEndpoint = this.apiBase + 'api/auth/identity';
-  private tokenEndpoint = this.apiBase + 'api/auth/token';
+  private logoutEndpoint = this.apiBase + 'api/auth/logout';
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +23,8 @@ export class AuthService {
     );
   }
 
-  getToken(): Observable<string> {
-    return this.http.get<string>(this.tokenEndpoint, { withCredentials: true })
+  logout(): Observable<any> {
+    return this.http.get(this.logoutEndpoint, { withCredentials: true })
     .pipe(
       retry(3), // retry a failed request up to 3 times
       catchError(this.handleError) // then handle the error

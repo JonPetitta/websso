@@ -8,6 +8,7 @@ using System.Web.Http;
 namespace api.Controllers
 {
     [Route("api/user")]
+    [ApiAuth(Role = "user")]
     public class UserController : ApiController
     {
         // GET: api/User

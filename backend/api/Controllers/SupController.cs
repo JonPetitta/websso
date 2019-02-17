@@ -8,6 +8,7 @@ using System.Web.Http;
 namespace api.Controllers
 {
     [Route("api/sup")]
+    [ApiAuth(Role = "supervisor")]
     public class SupController : ApiController
     {
         // GET: api/Sup
