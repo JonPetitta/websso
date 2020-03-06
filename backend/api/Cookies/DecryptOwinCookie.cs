@@ -1,4 +1,5 @@
-﻿using System;
+﻿using api.App_Start;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -24,7 +25,8 @@ namespace api.Cookies
 
             bytes = System.Web.Security.MachineKey.Unprotect(bytes,
                 "Microsoft.Owin.Security.Cookies.CookieAuthenticationMiddleware",
-                    "ExternalCookie", "v1");
+                AppConfig.AuthenticationType,
+                "v1");
 
             using (var memory = new MemoryStream(bytes))
             {

@@ -1,4 +1,5 @@
-﻿using api.Cookies;
+﻿using api.App_Start;
+using api.Cookies;
 using api.Models;
 using api.Utils;
 using Newtonsoft.Json;
@@ -37,7 +38,7 @@ namespace api.Controllers
             Request.GetOwinContext()
                 .Response
                 .Cookies
-                .Delete(".AspNet.ExternalCookie",
+                .Delete(AppConfig.CookieName,
                         new Microsoft.Owin.CookieOptions());
 
             return Ok();

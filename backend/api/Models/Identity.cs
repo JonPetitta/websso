@@ -1,4 +1,5 @@
-﻿using api.Cookies;
+﻿using api.App_Start;
+using api.Cookies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace api.Models
 
             var cookie = request.GetOwinContext()
                                 .Request
-                                .Cookies[".AspNet.ExternalCookie"];
+                                .Cookies[AppConfig.AuthenticationType];
 
             var principal = DecryptOwinCookie.GetClaimsPrincipal(cookie);
 

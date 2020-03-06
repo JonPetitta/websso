@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Sustainsys.Saml2;
 using Sustainsys.Saml2.Configuration;
@@ -12,13 +14,26 @@ using System.Web;
 
 namespace api.App_Start
 {
+    public static class AppConfig
+    {
+        public static readonly string AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
+        public static readonly string CookieName = ".AspNet.ApplicationCookie";
+    }
+
     public partial class Startup
     {
         // For more information on configuring authentication, 
         // please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            var cookieOptions = new CookieAuthenticationOptions
+            {
+                AuthenticationType = AppConfig.AuthenticationType
+            };
+
+            app.UseCookieAuthentication(cookieOptions);
+
+            app.SetDefaultSignInAsAuthenticationType(cookieOptions.AuthenticationType);
 
             app.UseSaml2Authentication(CreateSaml2Options());
         }
