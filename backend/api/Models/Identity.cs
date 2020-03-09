@@ -20,7 +20,7 @@ namespace api.Models
 
             var cookie = request.GetOwinContext()
                                 .Request
-                                .Cookies[AppConfig.AuthenticationType];
+                                .Cookies[AppConfig.CookieName];
 
             var principal = DecryptOwinCookie.GetClaimsPrincipal(cookie);
 
