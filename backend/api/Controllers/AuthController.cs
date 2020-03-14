@@ -1,13 +1,10 @@
 ﻿using api.App_Start;
-using api.Cookies;
-using api.Models;
-using api.Utils;
-using Newtonsoft.Json;
+using api.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace api.Controllers
@@ -22,7 +19,7 @@ namespace api.Controllers
         {
             try
             {
-                var identity = Identity.GetIdentity(Request);
+                var identity = ApiIdentity.GetIdentity(Request);
                 return Ok(identity);
             }
             catch (Exception ex)

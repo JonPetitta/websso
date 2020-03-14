@@ -7,10 +7,7 @@ using Sustainsys.Saml2.Configuration;
 using Sustainsys.Saml2.Metadata;
 using Sustainsys.Saml2.Owin;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 
 namespace api.App_Start
 {
@@ -65,7 +62,7 @@ namespace api.App_Start
                     }
                 }
             };
-            
+
             var ipEntityId = ConfigurationManager.AppSettings["saml:IPEntityId"];
             var ipMetadata = ConfigurationManager.AppSettings["saml:IPMetadataUrl"];
             var idp = new IdentityProvider(new EntityId(ipEntityId), spOptions)
@@ -79,5 +76,5 @@ namespace api.App_Start
 
             return saml2Options;
         }
-    }        
+    }
 }

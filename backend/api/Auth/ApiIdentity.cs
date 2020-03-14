@@ -1,28 +1,27 @@
 ﻿using api.App_Start;
-using api.Cookies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
 
-namespace api.Models
+namespace api.Auth
 {
-    public class Identity
+    public class ApiIdentity
     {
         public string LoginId { get; set; }
         public string Name { get; set; }
         public List<string> Roles { get; set; }
 
-        public static Identity GetIdentity(HttpRequestMessage request)
+        public static ApiIdentity GetIdentity(HttpRequestMessage request)
         {
-            var identity = new Identity();
+            var identity = new ApiIdentity();
 
             var cookie = request.GetOwinContext()
                                 .Request
                                 .Cookies[AppConfig.CookieName];
 
-            var principal = DecryptOwinCookie.GetClaimsPrincipal(cookie);
+            var principal = DecryptCookie.GetClaimsPrincipal(cookie);
 
             var name = principal.Claims
                 .Where(c => c.Type.Contains("identity/claims/nameidentifier"))

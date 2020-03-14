@@ -1,12 +1,11 @@
-﻿using api.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace api
+namespace api.Auth
 {
     public class ApiAuthAttribute : AuthorizeAttribute
     {
@@ -19,7 +18,7 @@ namespace api
                 throw new ArgumentNullException("actionContext");
             }
 
-            var identity = Identity.GetIdentity(actionContext.Request);
+            var identity = ApiIdentity.GetIdentity(actionContext.Request);
 
             if (identity.Roles.Contains(Role))
             {
@@ -27,8 +26,6 @@ namespace api
             }
 
             HandleUnauthorizedRequest(actionContext);
-
-            //base.OnAuthorization(actionContext);
         }
     }
 }

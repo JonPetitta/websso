@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace api
+namespace api2
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
